@@ -31,5 +31,5 @@ Permission.belongsToMany(Role, {
   as: 'roles',
 });
 
-export { sequelize };
+export { Organization, Permission, Product, Role, User, sequelize };
 export default { sequelize };
