@@ -9,6 +9,7 @@ import {
 import { sequelize } from '../config/db';
 import { timestampColumns } from './timestamps';
 import type User from './user.model';
+import type Organization from './organization.model';
 
 class Product extends Model<InferAttributes<Product>, InferCreationAttributes<Product>> {
   declare id: CreationOptional<number>;
@@ -16,13 +17,13 @@ class Product extends Model<InferAttributes<Product>, InferCreationAttributes<Pr
   declare description: CreationOptional<string | null>;
   declare price: number;
   declare userId: number;
-  // Tenant scoping. Set from the requesting user in product.service.ts, and used in product.service.ts to filter queries so one organization
   declare organizationId: number;
   declare createdAt: CreationOptional<Date>;
   declare updatedAt: CreationOptional<Date>;
 
   // Present only when eager-loaded with `as: 'owner'`.
   declare owner?: NonAttribute<User>;
+  declare organization?: NonAttribute<Organization>;
 }
 
 Product.init(
