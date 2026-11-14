@@ -32,4 +32,4 @@ init();
 
 module.exports = { init, state };
 module.exports.ROOT = ROOT;
-module.exports.ENV = ENV;  
+module.exports.ENV = ENV;
